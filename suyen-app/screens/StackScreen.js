@@ -1,16 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
-
+// import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import { Text, View } from 'react-native';
 const StackScreen = () => {
     return (
-        <View>
-            <Text
-            style= {{
-                fontSize: 30,
-                textAlign: "center",
-                marginTop: "20%"
-            }}
-            >StackScreen</Text>
+        <View className="flex-1 items-center justify-center bg-black">
+            <Text>StackScreen</Text>
         </View>
     );
 }

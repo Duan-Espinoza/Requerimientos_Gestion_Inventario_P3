@@ -6,6 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 import { GestureHandlerRootView, TextInput } from 'react-native-gesture-handler';
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
+//Componentes
+import ProductsList from "../components/ProductsList";
 
 
 const HomeScreen = () => {
@@ -38,30 +40,22 @@ const HomeScreen = () => {
 
     return (
         <GestureHandlerRootView >
-            <ScrollView /* tus propiedades de ScrollView */>
-                <SafeAreaView style={{flex: 1, marginHorizontal: 20}}>
-                    <TextInput 
+            {/* <ScrollView >
+                <SafeAreaView className="flex-1 mx-5 bg-gray" >
+                    <TextInput className="px-4 py-2 border border-gray-300 rounded-xl"
                         placeholder="Buscar"
                         clearButtonMode="always"
-                        style={styles.searchBox}
                         autoCapitalize="none"
                         autoCorrect={false}
                     />
-                </SafeAreaView>
-            </ScrollView>
+                </SafeAreaView> 
+            </ScrollView> */}
+            <SafeAreaView className="flex-1 mx-5">
+                <ProductsList></ProductsList>
+            </SafeAreaView>
+            
         </GestureHandlerRootView>
     )
 }
-
-const styles = StyleSheet.create({
-    searchBox: {
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        borderColor: "#ccc",
-        borderWidth: 1,
-        borderRadius: 20
-
-    }
-})
 
 export default HomeScreen;
