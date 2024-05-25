@@ -1,0 +1,12 @@
+{
+  "name": "requerimientos_gestion_inventario_p3",
+  "version": "1.0.0",
+  "description": "Proyecto 3 de requerimientos de software\r Cambio esto para ver si me deja relizar commit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

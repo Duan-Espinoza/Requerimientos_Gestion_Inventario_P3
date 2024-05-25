@@ -1,20 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import React from "react";
+import { ScrollView } from "react-native-gesture-handler";
+import Navigation from "./Navigation";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Suyen-App</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Navigation/>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
