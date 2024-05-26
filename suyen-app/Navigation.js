@@ -9,6 +9,7 @@ import SettingsScreen from "./screens/AccountScreen";
 import StackScreen from "./screens/StackScreen";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import OrderScreen from "./screens/OrderScreen";
+import ProductDetailScreen from "./screens/ProductDetailScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const HomeStackNavigator = createNativeStackNavigator()
@@ -23,6 +24,7 @@ function MyStack() {
             options={{
                 headerTitleAlign: "center"
             }} />
+            <HomeStackNavigator.Screen name="ProductDetail" component={ProductDetailScreen} />
         </HomeStackNavigator.Navigator>
     )
         
