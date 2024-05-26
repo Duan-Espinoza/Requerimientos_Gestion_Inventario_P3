@@ -1,6 +1,8 @@
 import React from "react";
+import { useContext } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { CartContext } from "./CartContext";
 
 //screens
 import HomeScreen from "./screens/HomeScreen";
@@ -35,6 +37,7 @@ function MyStack() {
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
+    const { getTotalItemsInCart } = useContext(CartContext);
     return (
         <Tab.Navigator initialRouteName="Home"
             screenOptions={{
@@ -55,7 +58,7 @@ function MyTabs() {
                     tabBarIcon: ({color, size}) => (
                         <MaterialCommunityIcons name="cart-outline" size={24} color="black" />
                     ),
-                    tabBarBadge: 4, //Esta leva para ver articulos en el carrito
+                    tabBarBadge: getTotalItemsInCart(),
                 }}
             />
             <Tab.Screen name="Pedidos" component={OrderScreen}

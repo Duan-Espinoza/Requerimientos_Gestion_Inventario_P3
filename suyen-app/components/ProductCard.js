@@ -6,6 +6,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
 
 export default function ProductCard({
+    id,
     image,
     category,
     title,
@@ -25,9 +26,10 @@ export default function ProductCard({
                 <Text numberOfLines={1} className="text-lg font-semibold">{title}</Text>
                 <Text className="text-2xl font-extrabold" >₡ {price}</Text>
             </View>
-            <TouchableOpacity className="absolute bottom-0 right-0 bg-sky-600 w-10 h-10 rounded-tl-2xl rounded-br-2xl flex items-center justify-center" 
+            <TouchableOpacity className="absolute bottom-0 right-0 bg-black w-10 h-10 rounded-tl-2xl rounded-br-2xl flex items-center justify-center" 
                 onPress={() =>
                     navigation.navigate("ProductDetail", {
+                      id,
                       image,
                       category,
                       title,
