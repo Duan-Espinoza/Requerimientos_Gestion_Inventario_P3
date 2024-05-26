@@ -10,7 +10,7 @@ export default function ProductDetailScreen() {
   const { addToCart } = React.useContext(CartContext);
 
   const handleAddToCart = () => {
-    addToCart({ id, image, category, title, price, description }, count);
+    addToCart({ id, image, category, title, price, description });
   };
 
   return (

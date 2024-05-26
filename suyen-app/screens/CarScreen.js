@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView} from "react-native";
 import { GestureHandlerRootView,  } from "react-native-gesture-handler";
 import ProductsCartList from "../components/ProductsCartList";
+import { useNavigation } from '@react-navigation/native';
 
 const CarScreen = () => {
     return (

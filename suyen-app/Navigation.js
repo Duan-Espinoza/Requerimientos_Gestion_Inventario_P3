@@ -12,26 +12,34 @@ import StackScreen from "./screens/StackScreen";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import OrderScreen from "./screens/OrderScreen";
 import ProductDetailScreen from "./screens/ProductDetailScreen";
+import PaymentScreen from "./screens/PaymentScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const HomeStackNavigator = createNativeStackNavigator()
+const HomeStackNavigator = createNativeStackNavigator();
+
+const CarStackNavigator = createNativeStackNavigator();
 
 function MyStack() {
     return (
-        <HomeStackNavigator.Navigator
-            initialRouteName="HomeScreen"
-        >
+        <HomeStackNavigator.Navigator initialRouteName="HomeScreen">
             <HomeStackNavigator.Screen name="HomeScreen" component={HomeScreen} />
             <HomeStackNavigator.Screen name="Stack" component={StackScreen}
             options={{
                 headerTitleAlign: "center"
             }} />
             <HomeStackNavigator.Screen name="ProductDetail" component={ProductDetailScreen} />
+            
         </HomeStackNavigator.Navigator>
     )
-        
+}
 
-    
+function CartStack() {
+    return (
+        <CarStackNavigator.Navigator initialRouteName="Car">
+            <CarStackNavigator.Screen name="Car" component={CarScreen} />
+            <CarStackNavigator.Screen name="Payment" component={PaymentScreen}/>
+        </CarStackNavigator.Navigator>
+    )
 }
 
 const Tab = createBottomTabNavigator();
@@ -52,7 +60,7 @@ function MyTabs() {
                     )
                 }}
             />
-            <Tab.Screen name="Carrito" component={CarScreen}
+            <Tab.Screen name="Carrito" component={CartStack}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({color, size}) => (

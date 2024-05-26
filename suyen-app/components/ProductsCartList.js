@@ -5,11 +5,13 @@ import { CartContext } from '../CartContext';
 import { products } from "../products";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProductsCartList() {
   const { cart, calculateSubtotal } = React.useContext(CartContext);
   const shippingCost = 28;
   const total = calculateSubtotal + shippingCost;
+  const navigation = useNavigation();
 
   // Verifica el contenido del carrito
   console.log("Carrito:", cart);
@@ -59,7 +61,8 @@ export default function ProductsCartList() {
   </View>
 </View>
           
-          <TouchableOpacity className="bg-black p-3 rounded-full flex-row justify-center w-10/12 self-center m-5">
+          <TouchableOpacity className="bg-black p-3 rounded-full flex-row justify-center w-10/12 self-center m-5" onPress={() => 
+            navigation.navigate('Payment')}>
             <Text className="text-white font-bold" >Procesar pago</Text>
           </TouchableOpacity>
         </View>
