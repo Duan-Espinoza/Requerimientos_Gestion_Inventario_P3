@@ -1,0 +1,49 @@
+.login-registro-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-registro-container h2 {
+    text-align: center;
+  }
+  
+  .login-registro-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .login-registro-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .login-registro-container input,
+  .login-registro-container select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .login-registro-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login-registro-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-registro-container .error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
