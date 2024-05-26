@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -7,16 +7,38 @@ function Login() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Verificar si hay usuarios en localStorage al cargar el componente
+    const users = JSON.parse(localStorage.getItem('users'));
+    if (!users) {
+      // Si no hay usuarios en localStorage, cargar desde users.json
+      fetchUsersFromJson();
+    }
+  }, []); // Se ejecuta solo una vez al montar el componente
+
+  const fetchUsersFromJson = async () => {
+    try {
+      const response = await fetch('/users.json');
+      const users = await response.json();
+      localStorage.setItem('users', JSON.stringify(users));
+    } catch (error) {
+      console.error('Error al cargar los datos de usuarios desde users.json:', error);
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/users.json');
-      const users = await response.json();
+      // Obtener los usuarios desde localStorage
+      const users = JSON.parse(localStorage.getItem('users')) || [];
 
+      // Buscar al usuario por email y contraseña
       const user = users.find(u => u.email === email && u.password === password);
       if (user) {
+        // Guardar el rol en localStorage
         localStorage.setItem('role', user.role);
+        // Redirigir según el rol
         navigate(user.role === 'cliente' ? '/catalogo' : '/admin');
       } else {
         setError('Credenciales incorrectas');

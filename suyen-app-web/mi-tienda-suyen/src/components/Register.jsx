@@ -12,14 +12,25 @@ function Register() {
     e.preventDefault();
 
     try {
-      const response = await fetch('/users.json');
-      const users = await response.json();
+        //uso de localStorage para usuarios
+      // Obtener usuarios de localStorage o inicializar como un array vacío si no existe
+      const users = JSON.parse(localStorage.getItem('users')) || [];
 
+      // Verificar si el email ya está registrado
+      const existingUser = users.find(user => user.email === email);
+      if (existingUser) {
+        setError('Este email ya está registrado');
+        return;
+      }
+
+      // Agregar el nuevo usuario al array de usuarios
       const newUser = { email, password, role };
       users.push(newUser);
 
-      // Guardar el nuevo usuario en localStorage o contexto
+      // Guardar el array actualizado en localStorage
       localStorage.setItem('users', JSON.stringify(users));
+
+      // Redirigir al usuario después del registro
       navigate('/');
     } catch (error) {
       setError('Error al registrar el usuario');
