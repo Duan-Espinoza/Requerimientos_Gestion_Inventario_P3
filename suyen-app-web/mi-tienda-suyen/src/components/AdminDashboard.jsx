@@ -1,77 +1,79 @@
 // src/components/AdminDashboard.jsx
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Typography, Grid, Card, CardContent, CardActionArea, CardMedia } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import './styles.css';
 
 function AdminDashboard() {
-  const [products, setProducts] = useState([]);
-  const [newProduct, setNewProduct] = useState({ name: '', price: '', description: '' });
-  const [error, setError] = useState('');
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewProduct({ ...newProduct, [name]: value });
-  };
-
-  const handleAddProduct = (e) => {
-    e.preventDefault();
-    if (!newProduct.name || !newProduct.price || !newProduct.description) {
-      setError('Todos los campos son obligatorios');
-      return;
-    }
-
-    setProducts([...products, newProduct]);
-    setNewProduct({ name: '', price: '', description: '' });
-    setError('');
-  };
-
   return (
-    <div className="container">
-      <h2>Panel de Administración</h2>
-      <form onSubmit={handleAddProduct}>
-        <div>
-          <label htmlFor="name">Nombre del Producto:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={newProduct.name}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="price">Precio:</label>
-          <input
-            type="text"
-            id="price"
-            name="price"
-            value={newProduct.price}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Descripción:</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            value={newProduct.description}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <button type="submit">Agregar Producto</button>
-        {error && <p className="error-message">{error}</p>}
-      </form>
-      <h3>Lista de Productos</h3>
-      <ul>
-        {products.map((product, index) => (
-          <li key={index}>
-            <strong>{product.name}</strong> - {product.price} - {product.description}
-          </li>
-        ))}
-      </ul>
+    <div className="admin-dashboard-background">
+      <Container maxWidth="lg" sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+        <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ color: '#ffffff' }}>
+          Panel de Administración
+        </Typography>
+        <Grid container spacing={4} justifyContent="center">
+          <Grid item xs={12} sm={6} md={3}>
+            <Card>
+              <CardActionArea component={Link} to="/admin/add-product">
+                <CardMedia className="card-media">
+                  <AddIcon sx={{ fontSize: 60, color: '#007bff' }} />
+                </CardMedia>
+                <CardContent>
+                  <Typography variant="h6" component="h2" align="center">
+                    Agregar Producto
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Card>
+              <CardActionArea component={Link} to="/admin/edit-product">
+                <CardMedia className="card-media">
+                  <EditIcon sx={{ fontSize: 60, color: '#007bff' }} />
+                </CardMedia>
+                <CardContent>
+                  <Typography variant="h6" component="h2" align="center">
+                    Modificar Producto
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Card>
+              <CardActionArea component={Link} to="/admin/delete-product">
+                <CardMedia className="card-media">
+                  <DeleteIcon sx={{ fontSize: 60, color: '#007bff' }} />
+                </CardMedia>
+                <CardContent>
+                  <Typography variant="h6" component="h2" align="center">
+                    Eliminar Producto
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Card>
+              <CardActionArea component={Link} to="/admin/manage-users">
+                <CardMedia className="card-media">
+                  <ManageAccountsIcon sx={{ fontSize: 60, color: '#007bff' }} />
+                </CardMedia>
+                <CardContent>
+                  <Typography variant="h6" component="h2" align="center">
+                    Administrar Usuarios
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }
