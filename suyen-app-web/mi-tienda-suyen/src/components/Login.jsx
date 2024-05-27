@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './styles.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -49,7 +50,7 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
+    <div className="container">
       <h2>Iniciar Sesión</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
