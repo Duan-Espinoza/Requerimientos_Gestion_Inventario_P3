@@ -52,12 +52,16 @@ const CartProvider = ({ children }) => {
     setCart(prevCart => prevCart.filter(item => item.id !== productId));
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   const calculateSubtotal = useMemo(() => {
     return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   }, [cart]);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, getTotalItemsInCart, incrementItemInCart, removeItemFromCartCompletely, calculateSubtotal}}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, getTotalItemsInCart, incrementItemInCart, removeItemFromCartCompletely, calculateSubtotal, clearCart}}>
       {children}
     </CartContext.Provider>
   );

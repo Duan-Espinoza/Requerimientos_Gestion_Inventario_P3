@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity , TextComponent } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { CartContext } from '../CartContext';
 
 export default function ProductDetailScreen() {

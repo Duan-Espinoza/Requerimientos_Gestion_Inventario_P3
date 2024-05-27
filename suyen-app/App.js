@@ -1,13 +1,16 @@
 
 import React from "react";
-import { ScrollView } from "react-native-gesture-handler";
 import Navigation from "./Navigation";
 import { CartProvider } from './CartContext';
+import { OrderProvider } from './OrderContext';
+import 'react-native-gesture-handler';
 
 export default function App() {
   return (
     <CartProvider>
-        <Navigation/>
+        <OrderProvider>
+          <Navigation/>
+        </OrderProvider>
     </CartProvider>
   );
 }

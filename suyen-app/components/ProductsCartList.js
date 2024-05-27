@@ -27,43 +27,42 @@ export default function ProductsCartList() {
 
   return (
     <FlatList
-      data={cart}
-      keyExtractor={(item) => {
-        if (item && item.id) {
-          return item.id.toString();
-        }
-        console.log(products)
+        showsVerticalScrollIndicator={false}
+        data={cart}
+        keyExtractor={(item) => {
+            if (item && item.id) {
+                return item.id.toString();
+            }
         console.error("Item sin id:", item);
         return Math.random().toString(); // Proporciona una clave temporal en caso de error
       }}
-      renderItem={({ item }) => {
-        if (!item) {
-          return null;
-        }
+        renderItem={({ item }) => {
+            if (!item) {
+            return null;
+            }
         return <CartCard {...item} />;
       }}
       ListFooterComponent={() => (
         <View style={{ height: 190 }}>
-<View className="flex flex-col m-4" >
-  <View className="flex flex-row justify-between items-center pb-2 mb-1">
-    <View className="flex flex-col">
-      <Text>Subtotal</Text>
-      <Text>Envío</Text>
-    </View>
-    <View className="flex flex-col">
-      <Text className="text-right">₡ {calculateSubtotal.toFixed(2)}</Text>
-      <Text className="text-right">₡ {shippingCost}</Text>
-    </View>
-  </View>
-  <View className="flex-row justify-between items-center border-t border-gray-300 pt-2 mt-2">
-    <Text>Total</Text>
-    <Text>₡ {total.toFixed(2)}</Text>
-  </View>
-</View>
-          
+            <View className="flex flex-col m-4" >
+            <View className="flex flex-row justify-between items-center pb-2 mb-1">
+                <View className="flex flex-col">
+                <Text>Subtotal</Text>
+                <Text>Envío</Text>
+                </View>
+                <View className="flex flex-col">
+                <Text className="text-right">₡ {calculateSubtotal.toFixed(2)}</Text>
+                <Text className="text-right">₡ {shippingCost}</Text>
+                </View>
+            </View>
+            <View className="flex-row justify-between items-center border-t border-gray-300 pt-2 mt-2">
+                <Text>Total</Text>
+                <Text>₡ {total.toFixed(2)}</Text>
+            </View>
+            </View>
           <TouchableOpacity className="bg-black p-3 rounded-full flex-row justify-center w-10/12 self-center m-5" onPress={() => 
             navigation.navigate('Payment')}>
-            <Text className="text-white font-bold" >Procesar pago</Text>
+            <Text className="text-white font-bold" >Procesar pedido</Text>
           </TouchableOpacity>
         </View>
       )}
