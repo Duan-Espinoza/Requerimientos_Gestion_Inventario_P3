@@ -1,39 +1,42 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput} from "react-native";
-import IconTextInput from '../components/IconTextInput';
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const AccountScreen = () => {
+    const navigation = useNavigation();
+
+    const handleLogout = () => {
+        // Navegar a la pantalla de inicio de sesión y reemplazar la pila de navegación actual
+        navigation.replace('Login');
+    };
+
     return (
         <SafeAreaView className="mx-6">
             <Text className="self-center py-10 text-xl">Mi perfil</Text>
             <View className="self-center">
-                <MaterialCommunityIcons  name="account-circle" size={100} color="black" />
+                <MaterialCommunityIcons name="account-circle" size={100} color="black" />
             </View>  
             <View className="bg-slate-300 p-2 rounded-xl m-2">
                 <Text>Nombre:</Text>
                 <Text>Jefferson Pozo</Text>
             </View>
             <View className="bg-slate-300 p-2 rounded-xl m-2">
-                <Text>Correo electronico:</Text>
+                <Text>Correo electrónico:</Text>
                 <Text>jpozo@estudiantec.cr</Text>
             </View>
             <View className="bg-slate-300 p-2 rounded-xl m-2">
-                <Text>Telefono:</Text>
+                <Text>Teléfono:</Text>
                 <Text>84320063</Text>
             </View>
-
             <View className="my-10 ">
-                <TouchableOpacity className="bg-black rounded-xl py-3 px-4 mx-4">
+                <TouchableOpacity
+                    className="bg-black rounded-xl py-3 px-4 mx-4"
+                    onPress={handleLogout}
+                >
                     <Text className="text-white self-center text-base font-medium">Cerrar sesión</Text>
-                    {/* <MaterialCommunityIcons name="arrow-right" size={24} color="white" /> */}
                 </TouchableOpacity>
             </View>
-            
-            {/* <View className="flex-row justify-center">
-                <Text className="mx-2 text-lg font-light">¿No tienes cuenta?</Text>
-                <Text className="underline text-lg">Crear</Text>
-            </View> */}
         </SafeAreaView>
     );
 }

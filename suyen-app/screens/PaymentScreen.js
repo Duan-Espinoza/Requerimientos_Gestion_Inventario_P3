@@ -44,7 +44,7 @@ export default function PaymentScreen() {
         // Limpia el carrito
         clearCart();
         // Navega a la pantalla de pedidos
-        navigation.navigate('Pedidos');
+        navigation.navigate('OrderTab');
         // Limpia el estado después de realizar el pedido
         setOrderInfo({
             name: "",

@@ -12,7 +12,7 @@ import ProductsList from "../components/ProductsList";
 
 const HomeScreen = () => {
     return (
-        <GestureHandlerRootView >
+        <GestureHandlerRootView  >
             <SafeAreaView className="flex-1 mx-5">
                 <ProductsList></ProductsList>
             </SafeAreaView>
