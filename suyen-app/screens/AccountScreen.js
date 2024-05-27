@@ -1,45 +1,31 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput} from "react-native";
 import IconTextInput from '../components/IconTextInput';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const AccountScreen = () => {
     return (
         <SafeAreaView className="mx-6">
-            <Text className="font-bold text-5xl self-center mt-24">Suyen</Text>
-            <Text className="self-center py-10 text-xl">Ingresa tus datos</Text>
-            <View className="mb-4">
-                <IconTextInput
-                    icon="email-outline"
-                    placeholder="Nombre completo"
-                />
+            <Text className="self-center py-10 text-xl">Mi perfil</Text>
+            <View className="self-center">
+                <MaterialCommunityIcons  name="account-circle" size={100} color="black" />
+            </View>  
+            <View className="bg-slate-300 p-2 rounded-xl m-2">
+                <Text>Nombre:</Text>
+                <Text>Jefferson Pozo</Text>
             </View>
-            <View className="mb-4">
-                <IconTextInput
-                    icon="email-outline"
-                    placeholder="Correo electrónico"
-                />
+            <View className="bg-slate-300 p-2 rounded-xl m-2">
+                <Text>Correo electronico:</Text>
+                <Text>jpozo@estudiantec.cr</Text>
             </View>
-            <View className="mb-4">
-                <IconTextInput
-                    icon="lock-outline"
-                    placeholder="Telefono"
-                />
+            <View className="bg-slate-300 p-2 rounded-xl m-2">
+                <Text>Telefono:</Text>
+                <Text>84320063</Text>
             </View>
-            <View className="mb-4">
-                <IconTextInput
-                    icon="lock-outline"
-                    placeholder="Contraseña"
-                />
-            </View>
-            <View className="">
-                <IconTextInput
-                    icon="lock-outline"
-                    placeholder="Confirmar contraseña"
-                />
-            </View>
+
             <View className="my-10 ">
-                <TouchableOpacity className="bg-black rounded-xl py-3 px-4">
-                    <Text className="text-white self-center text-base font-medium">Registrarse</Text>
+                <TouchableOpacity className="bg-black rounded-xl py-3 px-4 mx-4">
+                    <Text className="text-white self-center text-base font-medium">Cerrar sesión</Text>
                     {/* <MaterialCommunityIcons name="arrow-right" size={24} color="white" /> */}
                 </TouchableOpacity>
             </View>

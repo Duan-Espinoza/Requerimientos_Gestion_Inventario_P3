@@ -1,9 +1,9 @@
 import * as React from "react";
 import { View, Text, Pressable, Image, TouchableOpacity } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { useColorScheme } from "nativewind";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
+import { CartContext } from '../CartContext';
 
 export default function ProductCard({
     id,
@@ -14,10 +14,27 @@ export default function ProductCard({
     description
     
  }){
+    const route = useRoute();
+    // const { id, image, category, title, price, description } = route.params;
+    const { addToCart } = React.useContext(CartContext);
+  
+    const handleAddToCart = () => {
+      addToCart({ id, image, category, title, price, description });
+    };
+  
     const navigation = useNavigation();
-    const [count, setCount] = React.useState(1);
     return (
-        <View className="flex-1 w-1/2 p-2 bg-slate-300 rounded-2xl m-2" >
+        <TouchableOpacity className="flex-1 w-1/2 p-2 bg-slate-300 rounded-2xl m-2" 
+        onPress={() =>
+            navigation.navigate("ProductDetail", {
+              id,
+              image,
+              category,
+              title,
+              price,
+              description,
+            })
+          }>
             <View className="rounded-2xl overflow-hidden">
                 <Image source={{uri:image}} className="h-40 w-30"></Image>
             </View>
@@ -27,20 +44,9 @@ export default function ProductCard({
                 <Text className="text-2xl font-extrabold" >₡ {price}</Text>
             </View>
             <TouchableOpacity className="absolute bottom-0 right-0 bg-black w-10 h-10 rounded-tl-2xl rounded-br-2xl flex items-center justify-center" 
-                onPress={() =>
-                    navigation.navigate("ProductDetail", {
-                      id,
-                      image,
-                      category,
-                      title,
-                      price,
-                      description,
-                    })
-                  }
-          
-            >
+            onPress={handleAddToCart}>
                 <MaterialCommunityIcons name="plus" size={24} color="white" />
-            </TouchableOpacity>
-        </View>
+            </TouchableOpacity >
+        </TouchableOpacity>
     )
 }

@@ -1,11 +1,13 @@
 import * as React from "react";
 import { FlatList, Text,TextInput } from "react-native";
 import { products } from "../products";
+;
 // Componente
 import ProductCard from "./ProductCard";
 
+
 export default function ProductsList() {
-  const [isScrolling, setIsScrolling] = React.useState(false);
+  
   return ( 
     <FlatList 
       showsVerticalScrollIndicator={false}
@@ -19,7 +21,7 @@ export default function ProductsList() {
       )}
       data={products} 
       keyExtractor={(product) => product.id}
-      renderItem={({ item }) => <ProductCard {...item} isScrolling={isScrolling}/>}
+      renderItem={({ item }) => <ProductCard {...item} />}
       numColumns={2} // Especificar el número de columnas 
       columnWrapperStyle={{ justifyContent: 'space-between' }} // Opcional: para espaciar las columnas
     />
