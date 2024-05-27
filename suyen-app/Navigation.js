@@ -1,6 +1,8 @@
 import React from "react";
+import { useContext } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { CartContext } from "./CartContext";
 
 //screens
 import HomeScreen from "./screens/HomeScreen";
@@ -9,6 +11,7 @@ import SettingsScreen from "./screens/AccountScreen";
 import StackScreen from "./screens/StackScreen";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import OrderScreen from "./screens/OrderScreen";
+import ProductDetailScreen from "./screens/ProductDetailScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const HomeStackNavigator = createNativeStackNavigator()
@@ -23,6 +26,7 @@ function MyStack() {
             options={{
                 headerTitleAlign: "center"
             }} />
+            <HomeStackNavigator.Screen name="ProductDetail" component={ProductDetailScreen} />
         </HomeStackNavigator.Navigator>
     )
         
@@ -33,6 +37,7 @@ function MyStack() {
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
+    const { getTotalItemsInCart } = useContext(CartContext);
     return (
         <Tab.Navigator initialRouteName="Home"
             screenOptions={{
@@ -53,7 +58,7 @@ function MyTabs() {
                     tabBarIcon: ({color, size}) => (
                         <MaterialCommunityIcons name="cart-outline" size={24} color="black" />
                     ),
-                    tabBarBadge: 4, //Esta leva para ver articulos en el carrito
+                    tabBarBadge: getTotalItemsInCart(),
                 }}
             />
             <Tab.Screen name="Pedidos" component={OrderScreen}

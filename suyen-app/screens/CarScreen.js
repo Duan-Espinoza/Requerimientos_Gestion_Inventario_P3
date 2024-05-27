@@ -1,17 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView} from "react-native";
+import { GestureHandlerRootView,  } from "react-native-gesture-handler";
+import ProductsCartList from "../components/ProductsCartList";
 
 const CarScreen = () => {
     return (
-        <View>
-            <Text
-            style= {{
-                fontSize: 30,
-                textAlign: "center",
-                marginTop: "20%"
-            }}
-            >Car Screen</Text>
-        </View>
+        <GestureHandlerRootView>
+            <SafeAreaView className="flex-1 mx-5">
+                <Text className="text-center mt-8 font-extrabold  text-xl">Carrito de compras</Text>
+            <ProductsCartList/>
+            </SafeAreaView>
+        </GestureHandlerRootView>
     );
 }
 
