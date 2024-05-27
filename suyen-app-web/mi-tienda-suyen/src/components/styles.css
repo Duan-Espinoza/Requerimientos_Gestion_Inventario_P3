@@ -1,0 +1,180 @@
+/* styles.css */
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  input, select {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    text-align: center;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+  }
+  
+  /* src/components/styles.css */
+/* Añadir debajo de los estilos anteriores o en cualquier lugar en el archivo */
+
+h3 {
+  margin-top: 30px;
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+li strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #007bff;
+}
+
+/* src/components/styles.css */
+/* Añadir debajo de los estilos anteriores o en cualquier lugar en el archivo */
+
+.admin-options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin-options li {
+  margin: 15px 0;
+}
+
+.admin-options a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.admin-options a:hover {
+  color: #0056b3;
+}
+
+/* src/components/styles.css */
+/* Añadir debajo de los estilos anteriores o en cualquier lugar en el archivo */
+
+.container {
+  margin-top: 2rem;
+}
+
+.admin-options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin-options li {
+  margin: 15px 0;
+}
+
+.admin-options a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.admin-options a:hover {
+  color: #0056b3;
+}
+
+
+
+/* src/components/styles.css */
+/* src/components/styles.css */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-dashboard-background {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  background-color: #ffffff;
+}
+
+.MuiCard-root {
+  transition: transform 0.2s ease-in-out;
+}
+
+.MuiCard-root:hover {
+  transform: scale(1.05);
+}
+
+.MuiCardContent-root {
+  background-color: #ffffff;
+}
+
+.MuiTypography-h4 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './styles.css';
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ function Register() {
     e.preventDefault();
 
     try {
-        //uso de localStorage para usuarios
+      //uso de localStorage para usuarios
       // Obtener usuarios de localStorage o inicializar como un array vacío si no existe
       const users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -38,7 +39,7 @@ function Register() {
   };
 
   return (
-    <div className="register-container">
+    <div className="container">
       <h2>Registrarse</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleRegister}>
