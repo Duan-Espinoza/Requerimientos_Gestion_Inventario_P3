@@ -8,6 +8,7 @@ import AddProduct from './components/AddProduct';
 import EditProduct from './components/EditProduct';
 import DeleteProduct from './components/DeleteProduct';
 import ManageUsers from './components/ManageUsers';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/admin/edit-product" element={<EditProduct />} />
         <Route path="/admin/delete-product" element={<DeleteProduct />} />
         <Route path="/admin/manage-users" element={<ManageUsers />} />
+        <Route path='/catalogo' element= {<HomePage/>}/>
         {/* Otras rutas como '/catalogo' */}
       </Routes>
     </Router>

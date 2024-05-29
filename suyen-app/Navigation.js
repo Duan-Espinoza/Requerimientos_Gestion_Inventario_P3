@@ -149,7 +149,9 @@ function RootNavigation() {
             <RootStack.Screen 
                 name="Main" 
                 component={MyTabs} 
-                options={{ headerShown: false }} 
+                options={{ headerShown: false,
+                    
+                 }} 
             />
         </RootStack.Navigator>
     );
