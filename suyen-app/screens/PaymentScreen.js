@@ -63,7 +63,7 @@ export default function PaymentScreen() {
     return (
         <GestureHandlerRootView className="flex-1">
             <ScrollView contentContainerStyle={{ paddingBottom: 20 }} showsVerticalScrollIndicator={false}>
-                <View>
+                <View className="w-11/12 sm:w-1/2 self-center">
                     <View className="mx-2 mb-4 mt-4 p-2 bg-slate-300 rounded-2xl">
                         <Text>Información de envio</Text>
                         <Text>Nombre</Text>

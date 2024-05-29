@@ -6,7 +6,7 @@ const OrderScreen = () => {
     const { orders } = useContext(OrderContext);
 
     const renderOrderItem = ({ item }) => (
-        <View className="m-4 bg-slate-300 rounded-2xl p-4">
+        <View className="m-4 bg-slate-300 rounded-2xl p-4 w-11/12 sm:w-2/5 self-center">
             <View className="flex-row justify-between">
                 <View>
                     <Text className="text-gray-700">Realizado</Text>

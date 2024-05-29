@@ -43,8 +43,8 @@ export default function ProductsCartList() {
         return <CartCard {...item} />;
       }}
       ListFooterComponent={() => (
-        <View style={{ height: 190 }}>
-            <View className="flex flex-col m-4" >
+        <View style={{ height: 190, marginHorizontal:12 }}>
+            <View className="flex flex-col m-4 w-full sm:w-96 self-center" >
             <View className="flex flex-row justify-between items-center pb-2 mb-1">
                 <View className="flex flex-col">
                 <Text>Subtotal</Text>
@@ -60,7 +60,7 @@ export default function ProductsCartList() {
                 <Text>₡ {total.toFixed(2)}</Text>
             </View>
             </View>
-          <TouchableOpacity className="bg-black p-3 rounded-full flex-row justify-center w-10/12 self-center m-5" onPress={() => 
+          <TouchableOpacity className="bg-black p-3 rounded-full flex-row justify-center w-10/12 self-center m-5  sm:w-96" onPress={() => 
             navigation.navigate('Payment')}>
             <Text className="text-white font-bold" >Procesar pedido</Text>
           </TouchableOpacity>

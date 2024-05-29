@@ -30,14 +30,14 @@ const LoginScreen = () => {
         <SafeAreaView className="mx-6">
             <Text className="font-bold text-5xl self-center mt-32">Suyen</Text>
             <Text className="self-center py-10 text-xl">Inicia sesión</Text>
-            <View className="mb-6">
+            <View className="w-full sm:w-96 self-center mb-6">
                 <IconTextInput
                     icon="email-outline"
                     placeholder="Correo electrónico"
                     onChangeText={setEmail}
                 />
             </View>
-            <View className="">
+            <View className="w-full sm:w-96 self-center">
                 <IconTextInput
                     icon="lock-outline"
                     placeholder="Contraseña"
@@ -46,7 +46,7 @@ const LoginScreen = () => {
             </View>
             <View className="my-10">
                 <TouchableOpacity
-                    className="bg-black rounded-xl py-3 px-4"
+                    className="bg-black rounded-xl py-2 px-4 w-full sm:w-96 self-center"
                     onPress={handleLogin}
                 >
                     <Text className="text-white self-center text-base font-medium">Iniciar</Text>

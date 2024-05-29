@@ -15,7 +15,7 @@ export default function CartCard({
 }) {
     const { removeFromCart, incrementItemInCart,removeItemFromCartCompletely} = React.useContext(CartContext);
     return (
-    <View className="flex-row m-2 bg-slate-300 rounded-2xl">
+    <View className="flex-row m-2 bg-slate-300 rounded-2xl w-full sm:w-96 self-center">
         <View className="rounded-2xl overflow-hidden " >
             <Image source={{uri:image}} className="h-24 w-24"></Image>
         </View>
@@ -38,7 +38,7 @@ export default function CartCard({
                 />
             </View>
         </View>
-        <TouchableOpacity className="absolute top-7 right-4 bg-black w-10 h-10 rounded-2xl flex items-center justify-center"
+        <TouchableOpacity className="absolute top-7 right-4 bg-black w-10 h-10 rounded-2xl flex items-center justify-center "
         onPress={() => removeItemFromCartCompletely(id)}
         >
         <MaterialCommunityIcons name="trash-can-outline" size={24} color="white" />
