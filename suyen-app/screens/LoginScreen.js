@@ -1,13 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, Text, SafeAreaView, TouchableOpacity, Pressable } from "react-native";
 import IconTextInput from '../components/IconTextInput';
 import { useNavigation } from '@react-navigation/native';
+import { users } from '../users';
 
 const LoginScreen = () => {
     const navigation = useNavigation();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        navigation.replace('Main');
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+            if (user.role === 'admin') {
+                navigation.replace('Admin'); // Navegar a la pantalla de administración
+            } else {
+                navigation.replace('Main'); // Navegar a la pantalla principal
+            }
+        } else {
+            alert('Correo electrónico o contraseña incorrectos');
+        }
     };
 
     const handleCreateAccount = () => {
@@ -22,12 +34,14 @@ const LoginScreen = () => {
                 <IconTextInput
                     icon="email-outline"
                     placeholder="Correo electrónico"
+                    onChangeText={setEmail}
                 />
             </View>
             <View className="">
                 <IconTextInput
                     icon="lock-outline"
                     placeholder="Contraseña"
+                    onChangeText={setPassword}
                 />
             </View>
             <View className="my-10">

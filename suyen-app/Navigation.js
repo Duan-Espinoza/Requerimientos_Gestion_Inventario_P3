@@ -16,6 +16,7 @@ import ProductDetailScreen from "./screens/ProductDetailScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterLoginScreen from "./screens/RegisterLoginScreen"; // Agregar esta línea
+import AdminScreen from "./screens/AdminScreen";
 
 const HomeStackNavigator = createNativeStackNavigator();
 const CarStackNavigator = createNativeStackNavigator();
@@ -29,6 +30,7 @@ function HomeStack() {
             <HomeStackNavigator.Screen 
                 name="HomeScreen" 
                 component={HomeScreen} 
+                options={{headerShown: false}}
             />
             <HomeStackNavigator.Screen 
                 name="Stack" 
@@ -48,7 +50,8 @@ function CartStack() {
         <CarStackNavigator.Navigator initialRouteName="Car">
             <CarStackNavigator.Screen 
                 name="Car" 
-                component={CarScreen} 
+                component={CarScreen}
+                options={{ headerShown: false }} 
             />
             <CarStackNavigator.Screen 
                 name="Payment" 
@@ -152,6 +155,11 @@ function RootNavigation() {
                 options={{ headerShown: false,
                     
                  }} 
+            />
+            <RootStack.Screen 
+                name="Admin" 
+                component={AdminScreen} 
+                options={{ headerShown: false }} 
             />
         </RootStack.Navigator>
     );
