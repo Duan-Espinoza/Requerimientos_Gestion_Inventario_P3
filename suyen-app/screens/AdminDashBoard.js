@@ -3,14 +3,11 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, TextInput 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AdminProductCard from '../components/AdminProductCard';
 import AdminUserCard from '../components/AdminUserCard';
-import AddProductModal from '../components/AddProductModal';
-import AddUserModal from '../components/AddUserModal';
-
 
 import { users } from '../users';
 import { products } from '../products';
 
-const AdminScreen = () => {
+const AdminDashBoard = () => {
   const [productsData, setProductsData] = useState([]);
   const [usersData, setUsersData] = useState([]);
   const [showAddProductModal, setShowAddProductModal] = useState(false);
@@ -176,4 +173,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AdminScreen;
+export default AdminDashBoard;
