@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { CartContext } from "./CartContext";
+import CustomDrawerContent from "./components/CustomDrawerContent";
 
 // Screens
 import HomeScreen from "./screens/HomeScreen";
@@ -30,7 +31,7 @@ function HomeStack() {
             <HomeStackNavigator.Screen 
                 name="HomeScreen" 
                 component={HomeScreen} 
-                options={{headerShown: false}}
+                options={{headerShown: false, }}
             />
             <HomeStackNavigator.Screen 
                 name="Stack" 
@@ -62,25 +63,21 @@ function CartStack() {
 }
 
 function HomeDrawer() {
+    const [selectedCategory, setSelectedCategory] = useState(null);
     return (
-        <Drawer.Navigator initialRouteName="HomeStack">
+        <Drawer.Navigator initialRouteName="HomeStack" drawerContent={(props) => <CustomDrawerContent {...props} setSelectedCategory={setSelectedCategory} />} >
             <Drawer.Screen 
                 name="HomeStack" 
                 component={HomeStack} 
                 options={{ 
                     title: 'Suyen',
-                    headerTitleAlign: 'center'
+                    headerTitleAlign: 'center',
+                    headerTitleStyle: {
+                        fontSize: 38, // Cambia este valor al tamaño de fuente deseado
+                        fontWeight: 'bold', // Puedes cambiarlo por el estilo de fuente que desees
+                        color: '#000', // Cambia este valor al color de fuente deseado
+                    },
                 }} 
-            />
-            <Drawer.Screen 
-                name="OrderStack" 
-                component={OrderScreen} 
-                options={{ title: 'Pedidos' }} 
-            />
-            <Drawer.Screen 
-                name="AccountStack" 
-                component={SettingsScreen} 
-                options={{ title: 'Cuenta' }} 
             />
         </Drawer.Navigator>
     );
@@ -95,6 +92,7 @@ function MyTabs() {
                 name="HomeTab" 
                 component={HomeDrawer}
                 options={{
+                    title:"Tienda",
                     headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="store" size={24} color="black" />
@@ -105,6 +103,7 @@ function MyTabs() {
                 name="CartTab" 
                 component={CartStack}
                 options={{
+                    title:"Carrito",
                     headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="cart-outline" size={24} color="black" />
@@ -116,6 +115,7 @@ function MyTabs() {
                 name="OrderTab" 
                 component={OrderScreen}
                 options={{
+                    title:"Ordenes",
                     headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="package-variant-closed" size={24} color="black" />
@@ -126,6 +126,7 @@ function MyTabs() {
                 name="AccountTab" 
                 component={SettingsScreen}
                 options={{
+                    title:"Cuenta",
                     headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="account-circle-outline" size={24} color="black" />

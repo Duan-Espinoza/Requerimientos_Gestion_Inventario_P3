@@ -13,7 +13,7 @@ const AccountScreen = () => {
 
     return (
         <SafeAreaView className="mx-8">
-            <Text className="self-center py-10 text-xl">Mi perfil</Text>
+            <Text className="text-center my-8 font-extrabold  text-xl">Mi perfil</Text>
             <View className="self-center">
                 <MaterialCommunityIcons name="account-circle" size={100} color="black" />
             </View>  

@@ -30,8 +30,8 @@ const OrderScreen = () => {
     );
 
     return (
-        <SafeAreaView className="flex-1 p-5">
-            <Text className="text-2xl font-bold mb-4">Lista de Pedidos</Text>
+        <SafeAreaView className="flex-1 px-5">
+            <Text className="text-center my-8 font-extrabold  text-xl">Lista de Pedidos</Text>
             {orders.length === 0 ? (
                 <Text className="text-center">No hay pedidos realizados.</Text>
             ) : (

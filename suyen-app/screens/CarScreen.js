@@ -8,7 +8,7 @@ const CarScreen = () => {
     return (
         <GestureHandlerRootView>
             <SafeAreaView className="flex-1 mx-5">
-                <Text className="text-center mt-8 font-extrabold  text-xl">Carrito de compras</Text>
+                <Text className="text-center my-8 font-extrabold  text-xl">Carrito de compras</Text>
             <ProductsCartList/>
             </SafeAreaView>
         </GestureHandlerRootView>
