@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { Picker } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+
 
 
 export default function AddUserModal({ isVisible, onClose, onAddUser }) {
